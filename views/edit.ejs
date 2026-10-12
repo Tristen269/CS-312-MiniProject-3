@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+
+<section class="card">
+  <h2>Edit post</h2>
+  <form action="/posts/<%= blog.blog_id %>/edit" method="POST">
+    <label for="title">Title</label>
+    <input id="title" name="title" maxlength="255" value="<%= blog.title %>" required>
+    <label for="body">Content</label>
+    <textarea id="body" name="body" rows="6" required><%= blog.body %></textarea>
+    <button class="btn" type="submit">Save changes</button>
+    <a class="btn btn-outline" href="/">Cancel</a>
+  </form>
+</section>
+
+<%- include("partials/footer") %>

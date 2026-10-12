@@ -1,0 +1,86 @@
+:root {
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7785;
+  --accent: #2f6fed;
+  --danger: #d64545;
+  --border: #dde1e6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+.brand { font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+.nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+a { color: var(--accent); }
+
+.container { max-width: 760px; margin: 24px auto; padding: 0 16px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.card.narrow { max-width: 420px; margin-left: auto; margin-right: auto; }
+.card h2, .card h3 { margin-top: 0; }
+
+label { display: block; margin: 12px 0 4px; font-weight: 600; }
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+.btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 9px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-outline { background: transparent; color: var(--accent); }
+.btn-danger { background: var(--danger); border-color: var(--danger); }
+.btn-small { margin-top: 0; padding: 5px 12px; font-size: 0.9rem; }
+
+.inline { display: inline; margin: 0; }
+.actions { display: flex; gap: 8px; margin-top: 12px; }
+.meta, .muted { color: var(--muted); font-size: 0.9rem; }
+.post-body { white-space: pre-wrap; }
+
+.alert { padding: 10px 12px; border-radius: 6px; }
+.alert-error { background: #fdecec; color: #8a1f1f; }
+.alert-success { background: #e6f6ea; color: #1b5e2f; }
+
+@media (max-width: 520px) {
+  .nav { padding: 10px 12px; }
+  .card { padding: 14px; }
+}

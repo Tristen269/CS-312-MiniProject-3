@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+<section class="card narrow">
+  <h2>Account</h2>
+  <% if (error) { %><p class="alert alert-error"><%= error %></p><% } %>
+  <% if (success) { %><p class="alert alert-success"><%= success %></p><% } %>
+  <form action="/account" method="POST">
+    <label for="new_user_id">User ID</label>
+    <input id="new_user_id" name="new_user_id" value="<%= currentUser.user_id %>" required>
+    <label for="new_password">New password <span class="muted">(leave blank to keep current)</span></label>
+    <input id="new_password" name="new_password" type="password" minlength="6">
+    <button class="btn" type="submit">Update account</button>
+    <a class="btn btn-outline" href="/">Back</a>
+  </form>
+</section>
+
+<%- include("partials/footer") %>

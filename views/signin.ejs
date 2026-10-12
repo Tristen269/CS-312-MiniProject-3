@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<section class="card narrow">
+  <h2>Sign in</h2>
+  <% if (error) { %><p class="alert alert-error"><%= error %></p><% } %>
+  <form action="/signin" method="POST">
+    <label for="user_id">User ID</label>
+    <input id="user_id" name="user_id" required autofocus>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required>
+    <button class="btn" type="submit">Sign in</button>
+  </form>
+  <p class="muted">No account? <a href="/signup">Sign up</a></p>
+</section>
+
+<%- include("partials/footer") %>

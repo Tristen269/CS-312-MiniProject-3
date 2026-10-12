@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<section class="card">
+  <h2>New post</h2>
+  <form action="/posts" method="POST">
+    <label for="title">Title</label>
+    <input id="title" name="title" maxlength="255" required>
+    <label for="body">Content</label>
+    <textarea id="body" name="body" rows="4" required></textarea>
+    <button class="btn" type="submit">Publish</button>
+  </form>
+</section>
+
+<h2>Latest posts</h2>
+<% if (blogs.length === 0) { %>
+  <p class="muted">No posts yet. Be the first!</p>
+<% } %>
+
+<% blogs.forEach(blog => { %>
+  <article class="card">
+    <h3><%= blog.title %></h3>
+    <p class="meta">
+      By <%= blog.creator_name %> &middot;
+      <%= new Date(blog.date_created).toLocaleString() %>
+    </p>
+    <p class="post-body"><%= blog.body %></p>
+
+    <% if (currentUser && currentUser.user_id === blog.creator_user_id) { %>
+      <div class="actions">
+        <a class="btn btn-small btn-outline" href="/posts/<%= blog.blog_id %>/edit">Edit</a>
+        <form action="/posts/<%= blog.blog_id %>/delete" method="POST" class="inline"
+              onsubmit="return confirm('Delete this post permanently?');">
+          <button class="btn btn-small btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+    <% } %>
+  </article>
+<% }) %>
+
+<%- include("partials/footer") %>
